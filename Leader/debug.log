@@ -1,0 +1,135 @@
+测试服务器测试帐号：20179
+salt 的传输数据：
+Java:
+39663564 64663139 36353134 63313563 30353033 38633935 64373532 65363330 35353737 62386664 39663230 62313965
+Objec-c:
+39663564 64663139 36353134 63313563 30353033 38633935 64373532 65363330 35353737 62386664 39663230 62313965
+Java: pbkdf2处理后的结果：
+6362f00b 2bdf4e79 96b8ce09 9116223a 
+629cc2d0 a752beb5 f327d8e5 a6e4e0e7 2fdb066a cbb45e9b
+最后加密的结果：
+6362f00b 2bdf4e79 96b8ce09 9116223a 629cc2d0 a752beb5 f327d8e5 a6e4e0e7 2fdb066a cbb45e9b
+OBJECTC 返回的结果：
+ccbf4e33 37b626cc 4a8062b8 6ff6a9ad
+ea2d9665 dd271edc 8f7a7959 20d1b2d9
+e490edcd ba10b054 5e70de65 9911845d 2644435e 80c42c3f
+线上服务器测试帐号：20179
+测试服务器测试帐号：20117(任何密码),20146(123456),
+
+v1.0.0.1 --- 2014/12/4
+1、开机启动动画页面；
+2、实现的功能点有注册，登录功能；
+3、文章列表显示，文章内容查看；
+4、外加加入显示领域页面(2014/12/6)；
+
+v1.0.0.0.2 --- 2014/12/10~2014/12/11
+1、增加作者列表显示功能；
+2、新增发布文章到领域功能，以及新增用户评论列表显示功能；
+3、新增文章删除功能；
+4、新增文章插旗功能(2014/12/13)；
+
+v1.0.0.3 --- 2014/12/
+1、新增我的墙功能，以及未读，已删除文章内容列表显示；
+{"error":0,"message":null,"data":null}
+
+address = "<null>";
+answerStatus = 0;
+attentionUserCount = 121;
+birthday = "<null>";
+certificated = "<null>";
+channelId = "<null>";
+coins = 1000;
+confirmPassword = "<null>";
+contribution = 0;
+contributionNo = 165;
+createBy = "<null>";
+createTime = "<null>";
+credentialsExpired = "<null>";
+email = "<null>";
+enabled = 1;
+expired = "<null>";
+formerIcon = "<null>";
+friendRemark = "<null>";
+friendStatus = "<null>";
+icon = "<null>";
+iconFile = "<null>";
+id = 189;
+idNumber = "<null>";
+introduction = "<null>";
+jcList = "<null>";
+joinTime = 1412748068000;
+keyCount = 6;
+lastLogin = "<null>";
+lastLoginIp = "<null>";
+lastModified = 1412748068000;
+locked = "<null>";
+messageCount = 9;
+nickname = "\U6d4b\U8bd5";
+password = bb9afe3bb42ed3e5e403fa2ad421478961be2ced27ce51c8fe61f6da4fda63c5d3a356189ab093ba54161ffc571c60f0;
+passwordHint = "<null>";
+phone = "<null>";
+phoneBinding = "<null>";
+position = "<null>";
+prestige =         (
+{
+active = "<null>";
+articleCount = "<null>";
+createBy = "<null>";
+createTime = "<null>";
+createTimeString = "";
+enabled = "<null>";
+formerIcon = "<null>";
+icon = "<null>";
+id = 0;
+isClub = "<null>";
+isPrivate = "<null>";
+label = "\U4e3b\U57ce";
+lastModified = "<null>";
+payAmount = "<null>";
+payStyle = "<null>";
+rank = 5;
+status = "<null>";
+strCreateTime = "<null>";
+strStatus = "<null>";
+title = "\U4e3b\U57ce";
+totalCoins = 18917;
+updateBy = "<null>";
+updateTime = "<null>";
+userCount = "<null>";
+userRank = 1;
+value = 0;
+}
+);
+qq = "<null>";
+rank = 1;
+realName = "<null>";
+receiveMsgStatus = 1;
+school = "<null>";
+sex = "<null>";
+source = app;
+sourceRank = "<null>";
+strJoinTime = "2014-10-08";
+updateBy = "<null>";
+updateTime = "<null>";
+userId = "<null>";
+username = 20117;
+};
+error = 0;
+message = "<null>";
+}
+
+
+-[RKMeViewController imagePickerController:didFinishPickingMediaWithInfo:]{
+UIImagePickerControllerCropRect = "NSRect: {{0, 161}, {960, 961}}";
+UIImagePickerControllerEditedImage = "<UIImage: 0x174299050> size {638, 640} orientation 0 scale 1.000000";
+UIImagePickerControllerMediaType = "public.image";
+UIImagePickerControllerOriginalImage = "<UIImage: 0x174299000> size {960, 1280} orientation 0 scale 1.000000";
+UIImagePickerControllerReferenceURL = "assets-library://asset/asset.JPG?id=8B2B8D8C-5785-4C93-AB33-9C832585FCA2&ext=JPG";
+}
+2014-12-16 19:25:11.719 Leader[846:42287] {
+UIImagePickerControllerCropRect = "NSRect: {{0, 161}, {960, 961}}";
+UIImagePickerControllerEditedImage = "<UIImage: 0x174299050> size {638, 640} orientation 0 scale 1.000000";
+UIImagePickerControllerMediaType = "public.image";
+UIImagePickerControllerOriginalImage = "<UIImage: 0x174299000> size {960, 1280} orientation 0 scale 1.000000";
+UIImagePickerControllerReferenceURL = "assets-library://asset/asset.JPG?id=8B2B8D8C-5785-4C93-AB33-9C832585FCA2&ext=JPG";
+}

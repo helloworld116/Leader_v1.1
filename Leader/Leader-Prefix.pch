@@ -1,0 +1,166 @@
+//
+//  Leader-Prefix.pch
+//  Leader
+//
+//  Created by leyye on 14-11-1.
+//  Copyright (c) 2014年 leyye. All rights reserved.
+//
+#import <Availability.h>
+
+#ifndef Leader_Leader_Prefix_pch
+    #define Leader_Leader_Prefix_pch
+#endif
+
+#ifndef __IPHONE_6_0
+    #warning "This project uses features only available in iOS SDK 6.0 and later."
+#endif
+    #define IOS_VERSION_7_OR_ABOVE (([[[UIDevice currentDevice] systemVersion] floatValue] >= 7.0)? (YES):(NO))
+
+#define IOS_VERSION_8_OR_ABOVE (([[[UIDevice currentDevice] systemVersion] floatValue] >= 8.0)? (YES):(NO))
+
+/*
+ 用于判断模拟器还是真机
+ */
+#if TARGET_IPHONE_SIMULATOR
+    #define SIMULATOR 1
+#elif TARGET_OS_IPHONE
+    #define SIMULATOR 0
+#endif
+
+#ifdef DEBUG
+    #define ENABLE_ASSERT_STOP          1
+    #define ENABLE_DEBUGLOG             1
+#endif
+
+// 颜色日志
+#define XCODE_COLORS_ESCAPE_MAC @"\033["
+#define XCODE_COLORS_ESCAPE_IOS @"\xC2\xA0["
+#define XCODE_COLORS_ESCAPE  XCODE_COLORS_ESCAPE_MAC
+#define XCODE_COLORS_RESET_FG  XCODE_COLORS_ESCAPE @"fg;" // Clear any foreground color
+#define XCODE_COLORS_RESET_BG  XCODE_COLORS_ESCAPE @"bg;" // Clear any background color
+#define XCODE_COLORS_RESET     XCODE_COLORS_ESCAPE @";"   // Clear any foreground or background color
+#define LogBlue(frmt, ...) NSLog((XCODE_COLORS_ESCAPE @"fg0,150,255;" frmt XCODE_COLORS_RESET), ##__VA_ARGS__)
+#define LogRed(frmt, ...) NSLog((XCODE_COLORS_ESCAPE @"fg250,0,0;" frmt XCODE_COLORS_RESET), ##__VA_ARGS__)
+#define LogGreen(frmt, ...) NSLog((XCODE_COLORS_ESCAPE @"fg0,235,30;" frmt XCODE_COLORS_RESET), ##__VA_ARGS__)
+
+// debug log
+#ifdef ENABLE_DEBUGLOG
+    #define APP_DebugLog(...) NSLog(__VA_ARGS__)
+    #define APP_DebugLogBlue(...) LogBlue(__VA_ARGS__)
+    #define APP_DebugLogRed(...) LogRed(__VA_ARGS__)
+    #define APP_DebugLogGreen(...) LogGreen(__VA_ARGS__)
+#else
+    #define APP_DebugLog(...) do { } while (0);
+    #define APP_DebugLogBlue(...) do { } while (0);
+    #define APP_DebugLogRed(...) do { } while (0);
+    #define APP_DebugLogGreen(...) do { } while (0);
+#endif
+
+// log
+#define APP_Log(...) NSLog(__VA_ARGS__)
+
+// assert
+#ifdef ENABLE_ASSERT_STOP
+#define APP_ASSERT_STOP                     {LogRed(@"APP_ASSERT_STOP"); NSAssert1(NO, @" \n\n\n===== APP Assert. =====\n%s\n\n\n", __PRETTY_FUNCTION__);}
+#define APP_ASSERT(condition)               {NSAssert(condition, @" ! Assert");}
+#else
+#define APP_ASSERT_STOP                     do {} while (0);
+#define APP_ASSERT(condition)               do {} while (0);
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+
+/*
+ 用于定义不同版本间参考点高度的宏
+ */
+#define AppCGrect                           [[UIScreen mainScreen] applicationFrame]
+#define ScreenRect                          [[UIScreen mainScreen] bounds]
+#define ScreenWidth                         [[UIScreen mainScreen] bounds].size.width
+#define ScreenHeight                        [[UIScreen mainScreen] bounds].size.height
+
+//@"http://115.29.168.39/iread-app
+#define URL_BASE								@"http://121.40.19.92:8001"       // 线上
+//#define URL_BASE                                @"http://192.168.3.15:8080/iread-app"   // 测试
+//#define URL_BASE                                @"http://192.168.3.18:8080/iread-app" // 玉龙
+#define URL_IMG_BASE                            @"http://121.41.79.70/"
+#define	URL_SALT								[NSString stringWithFormat:@"%@/salt",URL_BASE]
+#define URL_VERSION_CHECK_UPDATE 				[NSString stringWithFormat:@"%@/latestversion/android",URL_BASE]
+#define URL_LOGIN 								[NSString stringWithFormat:@"%@/login",URL_BASE]
+#define URL_LOGOUT 								[NSString stringWithFormat:@"%@/logout",URL_BASE]
+#define URL_DOMAINS 							[NSString stringWithFormat:@"%@/circles",URL_BASE]
+// 我的墙
+#define URL_MY_WALL                             [NSString stringWithFormat:@"%@/my/wall",URL_BASE]
+#define URL_MY_DOMAINS 							[NSString stringWithFormat:@"%@/mycircles",URL_BASE]
+#define URL_ADD_DOMAIN							[NSString stringWithFormat:@"%@/mycircle/add",URL_BASE]
+#define URL_REMOVE_DOMAIN						[NSString stringWithFormat:@"%@/mycircle/remove",URL_BASE]
+#define URL_ARTICLES 							[NSString stringWithFormat:@"%@/articles",URL_BASE]
+#define	URL_MY_ARTICLE							[NSString stringWithFormat:@"%@/myarticles",URL_BASE]
+#define	URL_ADD_ARTICLE							[NSString stringWithFormat:@"%@/myarticle/add",URL_BASE]
+#define	URL_REMOVE_ARTICLE						[NSString stringWithFormat:@"%@/myarticle/remove",URL_BASE]
+#define	URL_UPLOAD_ARTS							[NSString stringWithFormat:@"%@/myarticle/add/upload",URL_BASE]
+#define	URL_SIGN_ARTICLE						[NSString stringWithFormat:@"%@/article/sign",URL_BASE]
+#define	URL_AUTHORS								[NSString stringWithFormat:@"%@/leaders",URL_BASE]
+#define	URL_APPLY_FRIEND						[NSString stringWithFormat:@"%@/friend/apply",URL_BASE]
+#define URL_AGREE_FRIEND                        [NSString stringWithFormat:@"%@/friend/agree",URL_BASE]
+#define	URL_AUTHOR_DETAIL						[NSString stringWithFormat:@"%@/circle/user/info",URL_BASE]
+#define	URL_MISSIONS							[NSString stringWithFormat:@"%@/activities",URL_BASE]
+#define	URL_AUTO_REG							[NSString stringWithFormat:@"%@/autoregistration",URL_BASE]
+#define URL_REG                                 [NSString stringWithFormat:@"%@/registration",URL_BASE]
+#define URL_MY_INFO  							[NSString stringWithFormat:@"%@/user/info",URL_BASE]
+#define URL_GET_NOTICE  						[NSString stringWithFormat:@"%@/wow/detail",URL_BASE]
+#define URL_READ_NOTICE  						[NSString stringWithFormat:@"%@/wow/readed",URL_BASE]
+#define URL_MY_COLLECTS  						[NSString stringWithFormat:@"%@/mycollects",URL_BASE]
+#define URL_UPLOAD_COLLECTS  					[NSString stringWithFormat:@"%@/myarticle/collect/upload",URL_BASE]
+#define URL_MOD_INFO  							[NSString stringWithFormat:@"%@/user/info/update",URL_BASE]
+#define URL_SEND_ART 							[NSString stringWithFormat:@"%@/article/publish",URL_BASE]
+#define URL_SEND_COMMENT  						[NSString stringWithFormat:@"%@/comment/publish",URL_BASE]
+#define URL_COMMENTS  							[NSString stringWithFormat:@"%@/comments",URL_BASE]
+// 顶部通知
+#define URL_DOMAIN_NOTES  						[NSString stringWithFormat:@"%@/circle/top/list",URL_BASE]
+#define URL_DOMAIN_NOTE  						[NSString stringWithFormat:@"%@/circle/top/detail",URL_BASE]
+//购物车
+#define URL_SHOPCART  							[NSString stringWithFormat:@"%@/shop/car/search",URL_BASE]
+#define URL_ADD_TO_CART  						[NSString stringWithFormat:@"%@/shop/car/add",URL_BASE]
+#define URL_DEL_FROM_CART  						[NSString stringWithFormat:@"%@/shop/car/goods/del",URL_BASE]
+#define URL_GET_CART_GOODS_COUNT  				[NSString stringWithFormat:@"%@/shop/car/goods/num",URL_BASE]
+#define URL_UPDATE_CART_GOODS_COUNT  			[NSString stringWithFormat:@"%@/shop/car/goods/update",URL_BASE]
+// 俱乐部
+#define URL_CLUBS  								[NSString stringWithFormat:@"%@/club/clubs",URL_BASE]
+#define URL_CLUB_INTRO  						[NSString stringWithFormat:@"%@/club/brief",URL_BASE]
+#define URL_CLUB_HOME  							[NSString stringWithFormat:@"%@/club/index",URL_BASE]
+#define URL_CLUB_PAY_TYPE  						[NSString stringWithFormat:@"%@/club/payType",URL_BASE]
+#define URL_ADD_CLUB  							[NSString stringWithFormat:@"%@/club/add",URL_BASE]
+#define URL_MY_CLUBS  							[NSString stringWithFormat:@"%@/club/my/clubs",URL_BASE]
+#define URL_UN_MY_CLUBS  						[NSString stringWithFormat:@"%@/club/my/unclubs",URL_BASE]
+#define URL_CLUB_ARTICLES  						[NSString stringWithFormat:@"%@/club/article/list",URL_BASE]
+#define URL_CLUB_AUTHORS  						[NSString stringWithFormat:@"%@/club/users",URL_BASE]
+#define URL_CLUB_MISSIONS  						[NSString stringWithFormat:@"%@/club/activities",URL_BASE]
+#define URL_CLUB_NOTES  						[NSString stringWithFormat:@"%@/club/top/list",URL_BASE]
+#define URL_CLUB_ME  							[NSString stringWithFormat:@"%@/club/user/detail",URL_BASE]
+#define URL_CLUB_ADD_ARTICLE  					[NSString stringWithFormat:@"%@/club/article/pick",URL_BASE]
+#define URL_CLUB_MSGS  							[NSString stringWithFormat:@"%@/club/user/message",URL_BASE]
+#define URL_CLUB_MSG_INFO  						[NSString stringWithFormat:@"%@/club/user/message/detail",URL_BASE]
+//商品
+#define URL_CLUB_GOODS_CATEGORY  				[NSString stringWithFormat:@"%@/shop/goods/type",URL_BASE]
+#define URL_CLUB_GOODS  						[NSString stringWithFormat:@"%@/shop/goods/search",URL_BASE]
+#define	URL_CLUB_GOODS_INFO						[NSString stringWithFormat:@"%@/shop/goods/detail",URL_BASE]
+//订单
+#define URL_CLUB_ORDERS  						[NSString stringWithFormat:@"%@/shop/order/search",URL_BASE]
+#define URL_CLUB_ORDER_SEND  					[NSString stringWithFormat:@"%@/shop/order/create",URL_BASE]
+#define URL_CLUB_ORDER_CANCEL  					[NSString stringWithFormat:@"%@/shop/order/cancel",URL_BASE]
+
+
+#ifdef DEBUG
+    #define debugLog(...) NSLog(__VA_ARGS__)
+    #define debugMethod() NSLog(@"%s", __func__)
+#else
+    #define debugLog(...)
+    #define debugMethod()
+#endif
+
+#endif
+
+

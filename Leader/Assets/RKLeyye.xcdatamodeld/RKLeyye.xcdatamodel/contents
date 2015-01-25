@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="6252" systemVersion="13E28" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="RKLeyyeArticle" representedClassName="" syncable="YES"/>
+    <entity name="RKLeyyeClub" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="leyyeno" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+    </entity>
+    <entity name="RKLeyyeDomain" representedClassName="" isAbstract="YES" syncable="YES">
+        <attribute name="articleCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="domainIcon" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="domainId" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="domainTitle" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userCount" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="leyye" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RKLeyyeClub" syncable="YES"/>
+    </entity>
+    <entity name="RKLeyyeUser" representedClassName="RKLeyyeUser" syncable="YES">
+        <attribute name="age" optional="YES" attributeType="Integer 16" syncable="YES"/>
+        <attribute name="contribution" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="isManuallyLogin" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="isSavePassword" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="money" optional="YES" attributeType="Double" defaultValueString="0.0" syncable="YES"/>
+        <attribute name="mPswType" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nickName" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="sex" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="telephone" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="userIcon" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="RKLeyyeDomain" positionX="324" positionY="-189" width="128" height="133"/>
+        <element name="RKLeyyeClub" positionX="-63" positionY="-18" width="128" height="73"/>
+        <element name="RKLeyyeUser" positionX="178" positionY="72" width="128" height="225"/>
+        <element name="RKLeyyeArticle" positionX="135" positionY="-36" width="128" height="43"/>
+    </elements>
+</model>
